@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- REMIXICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/s/assets/css/styles.css">
+
+    <title>Login</title>
+</head>
+<body>
+<div class="login">
+    <img src="/s/assets/img/Food_BG.webp" alt="image" class="login__bg">
+    <div id="success-box">
+        <div id="success">
+            <h1 class="login__title" style="margin-bottom:1rem;">User Registration Successfull!</h1>
+            <a style="color:white;" href="/">Click here to Login!</a>
+        </div>
+    </div>
+
+    <div class="login__form" id="login-box">
+        {% csrf_token %}
+        <h1 class="login__title">Register</h1>
+
+        <div class="login__inputs">
+            <div class="login__box">
+                <input type="email" placeholder="Email" name="email" required class="login__input" id="email-input">
+                <i class="ri-mail-fill"></i>
+            </div>
+
+            <div class="login__box">
+                <input type="password" placeholder="Password" name="pass" required class="login__input" id="password-input">
+                <i class="ri-lock-2-fill"></i>
+            </div>
+            <div class="login__box">
+                <input type="password" placeholder="Confirm Password" name="conpass" required class="login__input" id="conpassword-input">
+                <i class="ri-lock-2-fill"></i>
+            </div>
+        </div>
+        <button type="button" class="login__button" id="login-button">Register</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $("#login-button").click(function(){
+        let mail = $("#email-input").val();
+        let pass = $("#password-input").val();
+        let conpass = $("#conpassword-input").val();
+        let token = $("input[name=csrfmiddlewaretoken]").val();
+        let Data = {email: `${mail}`, pass: `${conpass}`, csrfmiddlewaretoken: `${token}`};
+        if(pass==conpass){
+            $.ajax({
+            type: 'POST',
+            url: '/x/register',
+            data: Data,
+            success: function(response) {
+                $("#login-box").css("display","none");
+                $("#success-box").css("display", "flex");
+                },
+            error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

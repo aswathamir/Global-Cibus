@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/s/img/RecipeLogo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/s/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Express Eat</title>
+</head>
+<body>
+
+    <!--- Navigation Bar -->
+    <div class="contact-header">
+        <div class="header">
+            <nav class="nav-bar">
+                <img src="/s/img/GC.png" class="brand-name">
+                <a href="#" class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+                <div class="menu-bar">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a style="color:blue;" href="/contact">Contact</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+                <div class="contact-wrapper">
+                    <div class="contact-title">
+                        <h1 style="color:white;">Contact Us</h1>
+                    </div>
+                    <div class="subtitle">
+                            <p style="color:white;">You can make any food request on the website. Simply submit a request using the form.</p>
+                    </div>
+                    <div class="box">
+                        <!--Form-->
+                        <div class="contact form">
+                            <h3>Send a Request</h3>
+                            <form class="gform pure-form pure-form-stacked" method="POST"
+                            action="/x/contact" onsubmit="event.preventDefault(); validateForm()">
+                                {% csrf_token %}
+                                <div class="formBox">
+                                    <div class="row50">
+                                        <div class="inputBox">
+                                            <label for="name">Name:</label>
+                                            <input type="text" name="name" id="name" placeholder="Your Name">
+                                            <small class="error"></small>
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="email">Email:</label>
+                                            <input type="text" name="email" id="email" placeholder="Your Email">
+                                            <small class="error"></small>
+                                        </div>
+                                    </div>
+                                    <div class="row100">
+                                        <div class="inputBox">
+                                            <label for="message">Message:</label>
+                                            <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                                            <small class="error"></small>
+                                        </div>
+                                    </div>
+                                    <div class="row100">
+                                        <div class="inputBox">
+                                            <input type="submit" id="sendMessage" value="Send Message" >
+                                            <p id="success"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--Info-->
+                        <div class="contact info">
+                            <h3>Contact Information</h3>
+                            <div class="infoBox">
+                                <div>
+                                    <span><ion-icon name="location-outline"></ion-icon></span>
+                                    <p>SRM arts and science college,kattangulathur<br>chennai</p>
+                                </div>
+                                <div>
+                                    <span><ion-icon name="mail-outline"></ion-icon></span>
+                                    <a href="mailto:medalladachris100@gmail.com">contact@globalcibus.com</a> 
+                                </div>
+                                <div>
+                                    <span><ion-icon name="call-outline"></ion-icon></span>
+                                    <a href="tel:+917358075884">+91 735 807 5884</a> 
+                                </div>
+                                <ul class="socMed">
+                                    <!--li><a href=""><ion-icon name="logo-github"></ion-icon></a></li>
+                                    <li><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></li-->
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Map-->
+                        <div class="contact map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.369095809621!2d80.03671387572159!3d12.819409318195392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f76c4db87a47%3A0x341fa471f8027d68!2sSRM%20University%2C%20Kattankulathur%2C%20Tamil%20Nadu%20603203!5e0!3m2!1sen!2sin!4v1711887967766!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="social-btn">
+            <!--a href="https://www.facebook.com/Cmedsss" target="_blank" ><i class="	fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/tiaanmeds/" target="_blank" ><i class="	fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/tianmeds/" target="_blank"><i class="	fab fa-linkedin"></i></a>
+            <a href="https://github.com/TianMeds" target="_blank"><i class="fab fa-github"></i></a-->
+        </div>
+            <div class="quick-bar">
+                <a href="/">Home</a>
+                <a href="about">About</a>
+                <a href="contact">Contact</a>
+            </div>
+            <p>Copyright &copy; 2024 Global Cibus. All right reserved</p>  
+    </div>
+    
+<script src="/s/assets/index.js"></script>
+<script src="/s/assets/message.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
